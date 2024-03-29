@@ -1,5 +1,5 @@
 import { Form, type ItemGroup } from '@lobehub/ui';
-import { Form as AntForm , Select, SelectProps } from 'antd';
+import { Form as AntForm, Select, SelectProps } from 'antd';
 import { createStyles } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { Webhook } from 'lucide-react';
@@ -10,10 +10,10 @@ import { useSyncSettings } from '@/app/settings/hooks/useSyncSettings';
 import { ModelItemRender, ProviderItemRender } from '@/components/ModelSelect';
 import { FORM_STYLE } from '@/const/layoutTokens';
 import { useGlobalStore } from '@/store/global';
-import { settingsSelectors , modelProviderSelectors } from '@/store/global/selectors';
+import { modelProviderSelectors, settingsSelectors } from '@/store/global/selectors';
 import { ModelProviderCard } from '@/types/llm';
 
-const TRANSLATION_SETTING_KEY = 'translation';
+const SYSTEM_AGENT_SETTING_KEY = 'systemAgent';
 
 type SettingItemGroup = ItemGroup;
 
@@ -30,7 +30,7 @@ interface ModelOption {
   value: string;
 }
 
-const Translation = memo(() => {
+const SystemAgent = memo(() => {
   const { t } = useTranslation('setting');
   const [form] = AntForm.useForm();
 
@@ -65,7 +65,31 @@ const Translation = memo(() => {
     }));
   }, [enabledList]);
 
-  const commonTranslation: SettingItemGroup = {
+  const functionSupportOptions = useMemo<SelectProps['options']>(() => {
+    const getChatModels = (provider: ModelProviderCard) =>
+      provider.chatModels
+        .filter((c) => !c.hidden && c.functionCall)
+        .map((model) => ({
+          label: <ModelItemRender {...model} />,
+          provider: provider.id,
+          value: model.id,
+        }));
+
+    if (enabledList.length === 1) {
+      const provider = enabledList[0];
+
+      return getChatModels(provider);
+    }
+
+    return enabledList
+      .filter((s) => getChatModels(s).length > 0)
+      .map((provider) => ({
+        label: <ProviderItemRender provider={provider.id} />,
+        options: getChatModels(provider),
+      }));
+  }, [enabledList]);
+
+  const systemAgentSettings: SettingItemGroup = {
     children: [
       {
         children: (
@@ -73,9 +97,11 @@ const Translation = memo(() => {
             className={styles.select}
             onChange={(model, option) => {
               setSettings({
-                translation: {
-                  model,
-                  provider: (option as unknown as ModelOption).provider,
+                systemAgent: {
+                  translation: {
+                    model,
+                    provider: (option as unknown as ModelOption).provider,
+                  },
                 },
               });
             }}
@@ -83,14 +109,35 @@ const Translation = memo(() => {
             popupMatchSelectWidth={false}
           />
         ),
-        desc: t('settingSystem.translation.modelDesc'),
-        label: t('settingSystem.translation.label'),
-        name: [TRANSLATION_SETTING_KEY, 'model'],
-        tag: 'model',
+        desc: t('systemAgent.translation.modelDesc'),
+        label: t('systemAgent.translation.label'),
+        name: [SYSTEM_AGENT_SETTING_KEY, 'translation', 'model'],
+      },
+      {
+        children: (
+          <Select
+            className={styles.select}
+            onChange={(model, option) => {
+              setSettings({
+                systemAgent: {
+                  function: {
+                    model,
+                    provider: (option as unknown as ModelOption).provider,
+                  },
+                },
+              });
+            }}
+            options={functionSupportOptions}
+            popupMatchSelectWidth={false}
+          />
+        ),
+        desc: t('systemAgent.function.modelDesc'),
+        label: t('systemAgent.function.label'),
+        name: [SYSTEM_AGENT_SETTING_KEY, 'function', 'model'],
       },
     ],
     icon: Webhook,
-    title: t('settingSystem.translation.title'),
+    title: t('systemAgent.title'),
   };
 
   useSyncSettings(form);
@@ -99,11 +146,14 @@ const Translation = memo(() => {
     <Form
       form={form}
       initialValues={settings}
-      items={[commonTranslation]}
-      // onValuesChange={debounce(setSettings, 100)}
+      items={[systemAgentSettings]}
+      // onValuesChange={(changedValues, allValues) => {
+      //   console.log("onValuesChange changedValues:", changedValues, " allValues: ", allValues);
+      //   setSettings(changedValues);
+      // }}
       {...FORM_STYLE}
     />
   );
 });
 
-export default Translation;
+export default SystemAgent;

@@ -4,9 +4,11 @@ import { LobeAgentConfig, LobeAgentTTSConfig } from '@/types/agent';
 import {
   GlobalBaseSettings,
   GlobalDefaultAgent,
+  GlobalFunctionConfig,
   GlobalLLMConfig,
   GlobalSettings,
   GlobalSyncSettings,
+  GlobalSystemAgentConfig,
   GlobalTTSConfig,
   GlobalTranslationConfig,
 } from '@/types/settings';
@@ -130,6 +132,16 @@ export const DEFAULT_TRANSLATION_CONFIG: GlobalTranslationConfig = {
   provider: DEFAULT_AGENT_CONFIG.provider || ModelProvider.OpenAI,
 };
 
+export const DEFAULT_FUNCTION_CONFIG: GlobalFunctionConfig = {
+  model: DEFAULT_AGENT_CONFIG.model,
+  provider: DEFAULT_AGENT_CONFIG.provider || ModelProvider.OpenAI,
+};
+
+export const DEFAULT_SYSTEM_AGENT_CONFIG: GlobalSystemAgentConfig = {
+  function: DEFAULT_FUNCTION_CONFIG,
+  translation: DEFAULT_TRANSLATION_CONFIG,
+};
+
 export const DEFAULT_TOOL_CONFIG = {
   dalle: {
     autoGenerate: false,
@@ -144,8 +156,8 @@ export const DEFAULT_SETTINGS: GlobalSettings = {
   defaultAgent: DEFAULT_AGENT,
   languageModel: DEFAULT_LLM_CONFIG,
   sync: DEFAULT_SYNC_CONFIG,
+  systemAgent: DEFAULT_SYSTEM_AGENT_CONFIG,
   tool: DEFAULT_TOOL_CONFIG,
-  translation: DEFAULT_TRANSLATION_CONFIG,
   tts: DEFAULT_TTS_CONFIG,
   ...DEFAULT_BASE_SETTINGS,
 };

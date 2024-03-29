@@ -4,7 +4,7 @@ export const chainLangDetect = (content: string): Partial<ChatStreamPayload> => 
   messages: [
     {
       content:
-        'You are a linguist who is proficient in languages from all over the world. You need to recognize the content input by the user and output it in an international standard locale.',
+        'You are locale detector with output is international format. Detect locale for following message.',
       role: 'system',
     },
     {

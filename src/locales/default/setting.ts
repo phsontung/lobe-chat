@@ -393,11 +393,6 @@ export default {
       },
     },
     title: '系统设置',
-    translation: {
-      label: 'Translation Model',
-      modelDesc: 'LLM',
-      title: 'Translation Settings',
-    },
   },
   settingTTS: {
     openai: {
@@ -504,6 +499,19 @@ export default {
         title: '开启同步',
       },
       title: 'WebRTC 同步',
+    },
+  },
+  systemAgent: {
+    function: {
+      label: 'Function model',
+      modelDesc: 'Specific model for function call (plugins)',
+      title: 'Function Settings',
+    },
+    title: 'System Agents',
+    translation: {
+      label: 'Translation model',
+      modelDesc: 'Specific model for translate message',
+      title: 'Translation Settings',
     },
   },
   tab: {

@@ -3,7 +3,7 @@ import { DEFAULT_AGENT_META } from '@/const/meta';
 import {
   DEFAULT_AGENT,
   DEFAULT_AGENT_CONFIG,
-  DEFAULT_TRANSLATION_CONFIG,
+  DEFAULT_SYSTEM_AGENT_CONFIG,
   DEFAULT_TTS_CONFIG,
 } from '@/const/settings';
 import { Locales } from '@/locales/resources';
@@ -26,8 +26,8 @@ const defaultAgentConfig = (s: GlobalStore) => merge(DEFAULT_AGENT_CONFIG, defau
 
 const defaultAgentMeta = (s: GlobalStore) => merge(DEFAULT_AGENT_META, defaultAgent(s).meta);
 
-const currentTranslation = (s: GlobalStore) =>
-  merge(DEFAULT_TRANSLATION_CONFIG, currentSettings(s).translation);
+const currentSystemAgent = (s: GlobalStore) =>
+  merge(DEFAULT_SYSTEM_AGENT_CONFIG, currentSettings(s).systemAgent);
 
 // TODO: Maybe we can also export settings difference
 const exportSettings = (s: GlobalStore) => {
@@ -55,8 +55,8 @@ const isDalleAutoGenerating = (s: GlobalStore) => currentSettings(s).tool?.dalle
 export const settingsSelectors = {
   currentLanguage,
   currentSettings,
+  currentSystemAgent,
   currentTTS,
-  currentTranslation,
   dalleConfig,
   defaultAgent,
   defaultAgentConfig,

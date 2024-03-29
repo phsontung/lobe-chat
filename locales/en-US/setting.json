@@ -390,11 +390,6 @@
         "success": "Sign out successful"
       }
     },
-    "translation": {
-      "title": "Translation Settings",
-      "label": "Translation Model",
-      "modelDesc": "LLM"
-    },
     "title": "System Settings"
   },
   "settingTTS": {
@@ -501,6 +496,19 @@
         "title": "Enable Sync"
       },
       "title": "WebRTC Sync"
+    }
+  },
+  "systemAgent": {
+    "title": "System Agents",
+    "translation": {
+      "title": "Translation Settings",
+      "label": "Translation model",
+      "modelDesc": "Specific model for translate message"
+    },
+    "function": {
+      "title": "Function Settings",
+      "label": "Function model",
+      "modelDesc": "Specific model for function call (plugins)"
     }
   },
   "tab": {

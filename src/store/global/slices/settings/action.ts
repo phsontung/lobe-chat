@@ -49,9 +49,8 @@ export const createSettingsSlice: StateCreator<
   setSettings: async (settings) => {
     const { settings: prevSetting, defaultSettings } = get();
 
-    //FIXME: tungps debug
-    console.log('prevSetting: ' + JSON.stringify(prevSetting));
-    console.log('settings: ' + JSON.stringify(settings));
+    console.log('DEBUG: setSettings:', settings, 'prevSetting:', prevSetting);
+
     const nextSettings = merge(prevSetting, settings);
 
     if (isEqual(prevSetting, nextSettings)) return;

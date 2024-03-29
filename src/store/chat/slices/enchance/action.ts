@@ -54,7 +54,7 @@ export const chatEnhance: StateCreator<
     ...data,
   }),
   getCurrentTranslationSetting: () => {
-    return settingsSelectors.currentTranslation(useGlobalStore.getState());
+    return settingsSelectors.currentSystemAgent(useGlobalStore.getState()).translation;
   },
 
   translateMessage: async (id, targetLang) => {
