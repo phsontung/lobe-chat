@@ -502,13 +502,13 @@
     "title": "System Agents",
     "translation": {
       "title": "Translation Settings",
-      "label": "Translation model",
+      "label": "Translation Agent",
       "modelDesc": "Specific model for translate message"
     },
     "function": {
       "title": "Function Settings",
-      "label": "Function model",
-      "modelDesc": "Specific model for function call (plugins)"
+      "label": "FunctionCall Agent",
+      "modelDesc": "Alternative agent for function call"
     }
   },
   "tab": {

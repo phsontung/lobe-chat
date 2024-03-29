@@ -2,7 +2,7 @@ import { Form, type ItemGroup } from '@lobehub/ui';
 import { Form as AntForm, Select, SelectProps } from 'antd';
 import { createStyles } from 'antd-style';
 import isEqual from 'fast-deep-equal';
-import { Webhook } from 'lucide-react';
+import { MessageSquareMore } from 'lucide-react';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -35,7 +35,10 @@ const SystemAgent = memo(() => {
   const [form] = AntForm.useForm();
 
   const settings = useGlobalStore(settingsSelectors.currentSettings, isEqual);
-  const [setSettings] = useGlobalStore((s) => [s.setSettings]);
+  const [setTranslationSystemAgent, setFunctionSystemAgent] = useGlobalStore((s) => [
+    s.setTranslationSystemAgent,
+    s.setFunctionSystemAgent,
+  ]);
 
   const select = useGlobalStore(modelProviderSelectors.modelSelectList, isEqual);
 
@@ -43,7 +46,7 @@ const SystemAgent = memo(() => {
 
   const enabledList = select.filter((s) => s.enabled);
 
-  const options = useMemo<SelectProps['options']>(() => {
+  const translationOptions = useMemo<SelectProps['options']>(() => {
     const getChatModels = (provider: ModelProviderCard) =>
       provider.chatModels
         .filter((c) => !c.hidden)
@@ -65,7 +68,7 @@ const SystemAgent = memo(() => {
     }));
   }, [enabledList]);
 
-  const functionSupportOptions = useMemo<SelectProps['options']>(() => {
+  const functionOptions = useMemo<SelectProps['options']>(() => {
     const getChatModels = (provider: ModelProviderCard) =>
       provider.chatModels
         .filter((c) => !c.hidden && c.functionCall)
@@ -95,17 +98,10 @@ const SystemAgent = memo(() => {
         children: (
           <Select
             className={styles.select}
-            onChange={(model, option) => {
-              setSettings({
-                systemAgent: {
-                  translation: {
-                    model,
-                    provider: (option as unknown as ModelOption).provider,
-                  },
-                },
-              });
-            }}
-            options={options}
+            onChange={(model, option) =>
+              setTranslationSystemAgent((option as unknown as ModelOption).provider, model)
+            }
+            options={translationOptions}
             popupMatchSelectWidth={false}
           />
         ),
@@ -117,17 +113,10 @@ const SystemAgent = memo(() => {
         children: (
           <Select
             className={styles.select}
-            onChange={(model, option) => {
-              setSettings({
-                systemAgent: {
-                  function: {
-                    model,
-                    provider: (option as unknown as ModelOption).provider,
-                  },
-                },
-              });
-            }}
-            options={functionSupportOptions}
+            onChange={(model, option) =>
+              setFunctionSystemAgent((option as unknown as ModelOption).provider, model)
+            }
+            options={functionOptions}
             popupMatchSelectWidth={false}
           />
         ),
@@ -136,23 +125,14 @@ const SystemAgent = memo(() => {
         name: [SYSTEM_AGENT_SETTING_KEY, 'function', 'model'],
       },
     ],
-    icon: Webhook,
+    icon: MessageSquareMore,
     title: t('systemAgent.title'),
   };
 
   useSyncSettings(form);
 
   return (
-    <Form
-      form={form}
-      initialValues={settings}
-      items={[systemAgentSettings]}
-      // onValuesChange={(changedValues, allValues) => {
-      //   console.log("onValuesChange changedValues:", changedValues, " allValues: ", allValues);
-      //   setSettings(changedValues);
-      // }}
-      {...FORM_STYLE}
-    />
+    <Form form={form} initialValues={settings} items={[systemAgentSettings]} {...FORM_STYLE} />
   );
 });
 

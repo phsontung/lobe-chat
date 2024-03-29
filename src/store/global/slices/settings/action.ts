@@ -16,11 +16,13 @@ import { merge } from '@/utils/merge';
 export interface SettingsAction {
   importAppSettings: (settings: GlobalSettings) => Promise<void>;
   resetSettings: () => Promise<void>;
+  setFunctionSystemAgent: (provider: string, model: string) => Promise<void>;
   setModelProviderConfig: <T extends GlobalLLMProviderKey>(
     provider: T,
     config: Partial<GlobalLLMConfig[T]>,
   ) => Promise<void>;
   setSettings: (settings: DeepPartial<GlobalSettings>) => Promise<void>;
+  setTranslationSystemAgent: (provider: string, model: string) => Promise<void>;
   switchThemeMode: (themeMode: ThemeMode) => Promise<void>;
   toggleProviderEnabled: (provider: GlobalLLMProviderKey, enabled: boolean) => Promise<void>;
   updateDefaultAgent: (agent: DeepPartial<LobeAgentSettings>) => Promise<void>;
@@ -43,9 +45,20 @@ export const createSettingsSlice: StateCreator<
     await userService.resetUserSettings();
     await get().refreshUserConfig();
   },
+  setFunctionSystemAgent: async (provider, model) => {
+    await get().setSettings({
+      systemAgent: {
+        function: {
+          model: model,
+          provider: provider,
+        },
+      },
+    });
+  },
   setModelProviderConfig: async (provider, config) => {
     await get().setSettings({ languageModel: { [provider]: config } });
   },
+
   setSettings: async (settings) => {
     const { settings: prevSetting, defaultSettings } = get();
 
@@ -60,7 +73,16 @@ export const createSettingsSlice: StateCreator<
     await userService.updateUserSettings(diffs);
     await get().refreshUserConfig();
   },
-
+  setTranslationSystemAgent: async (provider, model) => {
+    await get().setSettings({
+      systemAgent: {
+        translation: {
+          model: model,
+          provider: provider,
+        },
+      },
+    });
+  },
   switchThemeMode: async (themeMode) => {
     await get().setSettings({ themeMode });
   },
