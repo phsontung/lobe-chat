@@ -385,6 +385,11 @@ export default {
       },
     },
     title: '系统设置',
+    translation: {
+      label: 'Translation Model',
+      modelDesc: 'LLM',
+      title: 'Translation Settings',
+    },
   },
   settingTTS: {
     openai: {

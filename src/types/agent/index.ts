@@ -12,6 +12,7 @@ export interface LobeAgentTTSConfig {
     openai: string;
   };
 }
+
 export interface LobeAgentConfig {
   autoCreateTopicThreshold: number;
   compressThreshold?: number;

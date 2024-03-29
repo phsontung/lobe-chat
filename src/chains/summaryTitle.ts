@@ -9,13 +9,14 @@ export const chainSummaryTitle = async (
 
   const finalMessages: OpenAIChatMessage[] = [
     {
-      content: '你是一名擅长会话的助理，你需要将用户的会话总结为 10 个字以内的标题',
+      content:
+        "You are an assistant who is good at conversation. You need to summarize the user's conversation into a title within 10 words.",
       role: 'system',
     },
     {
       content: `${messages.map((message) => `${message.role}: ${message.content}`).join('\n')}
 
-请总结上述对话为10个字以内的标题，不需要包含标点符号，输出语言语种为：${lang}`,
+      Please summarize the above conversation into a title within 10 words. No punctuation is required. The output language is：${lang}`,
       role: 'user',
     },
   ];

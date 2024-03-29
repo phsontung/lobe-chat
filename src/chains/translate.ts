@@ -6,11 +6,11 @@ export const chainTranslate = (
 ): Partial<ChatStreamPayload> => ({
   messages: [
     {
-      content: '你是一名擅长翻译的助理，你需要将输入的语言翻译为目标语言',
+      content: 'You are expert translator, your translated message is clear, concise and accurate',
       role: 'system',
     },
     {
-      content: `请将以下内容 ${content}，翻译为 ${targetLang} `,
+      content: `Please translate following content as ${targetLang}: ${content}`,
       role: 'user',
     },
   ],

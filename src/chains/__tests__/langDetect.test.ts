@@ -16,7 +16,7 @@ describe('chainLangDetect', () => {
       messages: [
         {
           content:
-            '你是一名精通全世界语言的语言专家，你需要识别用户输入的内容，以国际标准 locale 进行输出',
+            'You are a linguist who is proficient in languages from all over the world. You need to recognize the content input by the user and output it in an international standard locale.',
           role: 'system',
         },
         {

@@ -147,6 +147,9 @@ class ChatService {
       provider,
     });
 
+    //FIXME: debug
+    console.log('getChatCompletion --', params, options, provider);
+
     return fetch(API_ENDPOINTS.chat(provider), {
       body: JSON.stringify(payload),
       headers,

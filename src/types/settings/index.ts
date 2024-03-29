@@ -5,6 +5,7 @@ import type { LobeAgentSession } from '@/types/session';
 import { GlobalBaseSettings } from './base';
 import { GlobalLLMConfig } from './modelProvider';
 import { GlobalSyncSettings } from './sync';
+import { GlobalTranslationConfig } from './translation';
 import { GlobalTTSConfig } from './tts';
 
 export type GlobalDefaultAgent = Pick<LobeAgentSession, 'config' | 'meta'>;
@@ -12,6 +13,7 @@ export type GlobalDefaultAgent = Pick<LobeAgentSession, 'config' | 'meta'>;
 export * from './base';
 export * from './modelProvider';
 export * from './sync';
+export * from './translation';
 export * from './tts';
 
 export interface GlobalTool {
@@ -38,5 +40,6 @@ export interface GlobalSettings extends GlobalBaseSettings {
   languageModel: GlobalLLMConfig;
   sync: GlobalSyncSettings;
   tool: GlobalTool;
+  translation: GlobalTranslationConfig;
   tts: GlobalTTSConfig;
 }

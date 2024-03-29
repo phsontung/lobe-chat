@@ -382,6 +382,11 @@
         "success": "Sign out successful"
       }
     },
+    "translation": {
+      "title": "Translation Settings",
+      "label": "Translation Model",
+      "modelDesc": "LLM"
+    },
     "title": "System Settings"
   },
   "settingTTS": {
