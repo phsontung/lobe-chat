@@ -68,6 +68,8 @@ export const getAppConfig = () => {
     AUTHENTIK_CLIENT_ID: process.env.AUTHENTIK_CLIENT_ID || '',
     AUTHENTIK_CLIENT_SECRET: process.env.AUTHENTIK_CLIENT_SECRET || '',
     AUTHENTIK_ISSUER: process.env.AUTHENTIK_ISSUER || '',
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID || '',
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET || '',
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET || '',
 
     ENABLE_LANGFUSE: process.env.ENABLE_LANGFUSE === '1',

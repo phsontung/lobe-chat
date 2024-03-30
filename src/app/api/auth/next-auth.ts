@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 import Auth0 from 'next-auth/providers/auth0';
 import Authentik from 'next-auth/providers/authentik';
 import AzureAd from 'next-auth/providers/azure-ad';
+import Google from 'next-auth/providers/google';
 
 import { getServerConfig } from '@/config/server';
 
@@ -17,6 +18,8 @@ const {
   AUTHENTIK_CLIENT_ID,
   AUTHENTIK_CLIENT_SECRET,
   AUTHENTIK_ISSUER,
+  GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET,
   NEXTAUTH_SECRET,
 } = getServerConfig();
 
@@ -77,6 +80,15 @@ const nextAuth = NextAuth({
               clientId: AUTHENTIK_CLIENT_ID,
               clientSecret: AUTHENTIK_CLIENT_SECRET,
               issuer: AUTHENTIK_ISSUER,
+            });
+          }
+          case 'google': {
+            return Google({
+              // Specify auth scope, at least include 'openid email'
+              // all scopes in Authentik ref: https://goauthentik.io/docs/providers/oauth2
+              authorization: { params: { scope: 'openid email profile' } },
+              clientId: GOOGLE_CLIENT_ID,
+              clientSecret: GOOGLE_CLIENT_SECRET,
             });
           }
           default: {
