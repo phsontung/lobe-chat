@@ -2,6 +2,323 @@
 
 # Changelog
 
+### [Version 0.145.12](https://github.com/lobehub/lobe-chat/compare/v0.145.11...v0.145.12)
+
+<sup>Released on **2024-04-04**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix typo of azure-id sso provider.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix typo of azure-id sso provider, closes [#1898](https://github.com/lobehub/lobe-chat/issues/1898) ([6925b25](https://github.com/lobehub/lobe-chat/commit/6925b25))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.145.11](https://github.com/lobehub/lobe-chat/compare/v0.145.10...v0.145.11)
+
+<sup>Released on **2024-04-03**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix page crash when using browser as the stt engine.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix page crash when using browser as the stt engine, closes [#1884](https://github.com/lobehub/lobe-chat/issues/1884) ([278820a](https://github.com/lobehub/lobe-chat/commit/278820a))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.145.10](https://github.com/lobehub/lobe-chat/compare/v0.145.9...v0.145.10)
+
+<sup>Released on **2024-04-02**</sup>
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.145.9](https://github.com/lobehub/lobe-chat/compare/v0.145.8...v0.145.9)
+
+<sup>Released on **2024-04-02**</sup>
+
+#### 💄 Styles
+
+- **misc**: Improve scrollbar style.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Styles
+
+- **misc**: Improve scrollbar style, closes [#1869](https://github.com/lobehub/lobe-chat/issues/1869) ([33d857f](https://github.com/lobehub/lobe-chat/commit/33d857f))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.145.8](https://github.com/lobehub/lobe-chat/compare/v0.145.7...v0.145.8)
+
+<sup>Released on **2024-04-02**</sup>
+
+#### ♻ Code Refactoring
+
+- **misc**: Refactor SSO providers.
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix plugins dropdown menu overflow.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### Code refactoring
+
+- **misc**: Refactor SSO providers, closes [#1865](https://github.com/lobehub/lobe-chat/issues/1865) ([290d33b](https://github.com/lobehub/lobe-chat/commit/290d33b))
+
+#### What's fixed
+
+- **misc**: Fix plugins dropdown menu overflow, closes [#1855](https://github.com/lobehub/lobe-chat/issues/1855) ([00e9068](https://github.com/lobehub/lobe-chat/commit/00e9068))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.145.7](https://github.com/lobehub/lobe-chat/compare/v0.145.6...v0.145.7)
+
+<sup>Released on **2024-04-02**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix DraggablePanel bar interfere with the operation of the scrollbar.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix DraggablePanel bar interfere with the operation of the scrollbar, closes [#1775](https://github.com/lobehub/lobe-chat/issues/1775) ([4b7b243](https://github.com/lobehub/lobe-chat/commit/4b7b243))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.145.6](https://github.com/lobehub/lobe-chat/compare/v0.145.5...v0.145.6)
+
+<sup>Released on **2024-04-02**</sup>
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.145.5](https://github.com/lobehub/lobe-chat/compare/v0.145.4...v0.145.5)
+
+<sup>Released on **2024-03-30**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Add qwen api models patch in ollama.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Add qwen api models patch in ollama, closes [#1630](https://github.com/lobehub/lobe-chat/issues/1630) ([a1e754c](https://github.com/lobehub/lobe-chat/commit/a1e754c))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.145.4](https://github.com/lobehub/lobe-chat/compare/v0.145.3...v0.145.4)
+
+<sup>Released on **2024-03-29**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix plugin install loading state error.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix plugin install loading state error, closes [#1815](https://github.com/lobehub/lobe-chat/issues/1815) ([2412a73](https://github.com/lobehub/lobe-chat/commit/2412a73))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.145.3](https://github.com/lobehub/lobe-chat/compare/v0.145.2...v0.145.3)
+
+<sup>Released on **2024-03-29**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix antd locale.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix antd locale, closes [#1814](https://github.com/lobehub/lobe-chat/issues/1814) ([e7fc148](https://github.com/lobehub/lobe-chat/commit/e7fc148))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.145.2](https://github.com/lobehub/lobe-chat/compare/v0.145.1...v0.145.2)
+
+<sup>Released on **2024-03-29**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix google ultra model id.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix google ultra model id, closes [#1813](https://github.com/lobehub/lobe-chat/issues/1813) ([c96ba12](https://github.com/lobehub/lobe-chat/commit/c96ba12))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+### [Version 0.145.1](https://github.com/lobehub/lobe-chat/compare/v0.145.0...v0.145.1)
+
+<sup>Released on **2024-03-29**</sup>
+
+#### 🐛 Bug Fixes
+
+- **misc**: Fix Google Gemini pro 1.5 and system role not take effect.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- **misc**: Fix Google Gemini pro 1.5 and system role not take effect, closes [#1801](https://github.com/lobehub/lobe-chat/issues/1801) ([0a3e3f7](https://github.com/lobehub/lobe-chat/commit/0a3e3f7))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
+## [Version 0.145.0](https://github.com/lobehub/lobe-chat/compare/v0.144.1...v0.145.0)
+
+<sup>Released on **2024-03-29**</sup>
+
+#### ✨ Features
+
+- **misc**: Support TogetherAI as new model provider.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- **misc**: Support TogetherAI as new model provider, closes [#1709](https://github.com/lobehub/lobe-chat/issues/1709) ([d6921ef](https://github.com/lobehub/lobe-chat/commit/d6921ef))
+
+</details>
+
+<div align="right">
+
+[![](https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square)](#readme-top)
+
+</div>
+
 ### [Version 0.144.1](https://github.com/lobehub/lobe-chat/compare/v0.144.0...v0.144.1)
 
 <sup>Released on **2024-03-29**</sup>
