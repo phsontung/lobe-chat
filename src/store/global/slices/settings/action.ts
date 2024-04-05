@@ -62,8 +62,6 @@ export const createSettingsSlice: StateCreator<
   setSettings: async (settings) => {
     const { settings: prevSetting, defaultSettings } = get();
 
-    console.log('DEBUG: setSettings:', settings, 'prevSetting:', prevSetting);
-
     const nextSettings = merge(prevSetting, settings);
 
     if (isEqual(prevSetting, nextSettings)) return;

@@ -40,7 +40,6 @@ export class LobeOpenAI implements LobeRuntimeAI {
   baseURL: string;
 
   async chat(payload: ChatStreamPayload, options?: ChatCompetitionOptions) {
-    console.log('OpenAPI payload: ' + JSON.stringify(payload));
     // ============  1. preprocess messages   ============ //
     const { messages, ...params } = payload;
 

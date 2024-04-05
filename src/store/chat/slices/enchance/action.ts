@@ -65,7 +65,6 @@ export const chatEnhance: StateCreator<
 
     // Get current agent for translation
     const translationSetting = get().getCurrentTranslationSetting();
-    console.log('TT DEBUG', translationSetting);
 
     // create translate extra
     await updateMessageTranslate(id, { content: '', from: '', to: targetLang });
